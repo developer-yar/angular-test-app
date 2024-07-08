@@ -1,0 +1,30 @@
+:host {
+  .filter-products {
+    display: grid;
+    gap: 2rem;
+
+    &__filter {
+      display: flex;
+    }
+    &__search-field {
+      flex: 1 0 auto;
+      font-size: 1.125rem;
+    }
+
+    &__clear {
+      width: 4rem;
+      font-size: 1.5rem;
+      background-color: rgb(0, 136, 255);
+      align-self: stretch;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      user-select: none;
+      color: white;
+
+      &:hover {
+        background-color: rgb(0, 152, 255);
+      }
+    }
+  }
+}

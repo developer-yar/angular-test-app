@@ -1,0 +1,17 @@
+@if(this.productAPIService.products$ | async; as products){
+<div class="filter-products">
+  <div class="filter-products__filter">
+    <input
+      [(ngModel)]="title"
+      class="filter-products__search-field"
+      placeholder="Enter the name of product"
+      type="text"
+    />
+    <div class="filter-products__clear" (click)="clear()">&#x2717;</div>
+  </div>
+  <app-products [products]="products | filterProducts : title" />
+</div>
+} @else if(this.productAPIService.isLoading){
+<app-loading />
+}
+<app-global-error />

@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+}
+
+input,
+textarea {
+  border: 0;
+  outline: 0;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+select {
+  outline: none;
+  border: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+//styles for the current project
+
+@font-face {
+  font-family: sf-pro-display-medium;
+  src: url("./assets/SF-Pro-Display-Medium.otf") format("opentype");
+}
+
+body {
+  line-height: 1.5;
+  background-color: rgb(247, 247, 247);
+  font-family: "sf-pro-display-medium";
+  font-weight: 400;
+}
+
+input,
+textarea,
+select {
+  padding: 1rem;
+  height: 3rem;
+  font-family: inherit;
+}
+
+button {
+  background-color: rgb(0, 136, 255);
+  padding: 1rem;
+  color: white;
+
+  &:hover {
+    background-color: rgb(0, 152, 255);
+  }
+}

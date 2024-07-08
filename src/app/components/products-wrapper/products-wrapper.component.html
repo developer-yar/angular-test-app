@@ -1,0 +1,6 @@
+@if(this.productAPIService.products$ | async; as products) {
+<app-products [products]="products" />
+} @else if(this.productAPIService.isLoading){
+<app-loading />
+}
+<app-global-error />

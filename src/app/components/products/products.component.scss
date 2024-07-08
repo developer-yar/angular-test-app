@@ -1,0 +1,30 @@
+:host {
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-block-end: 1rem;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .showMore {
+    height: 3rem;
+    width: 16rem;
+    margin: auto;
+  }
+}

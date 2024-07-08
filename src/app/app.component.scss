@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  gap: 2rem;
+
+  .wrapper {
+    padding-inline: 2rem;
+    margin: auto;
+    width: 100%;
+    max-width: 1280px;
+  }
+}

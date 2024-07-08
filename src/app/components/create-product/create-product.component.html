@@ -1,0 +1,93 @@
+@if(this.productAPIService.categories$ | async; as categories){
+<form class="form add-product-form">
+  <div class="form__block">
+    <label for="form__title" class="form__label">Title</label>
+    <input
+      class="form__input"
+      id="form__title"
+      name="title"
+      [(ngModel)]="product.title"
+      type="text"
+      #title="ngModel"
+      required
+    />
+    <app-error
+      [hidden]="title.pristine || title.valid"
+      title="Title is not specified"
+    />
+  </div>
+  <div class="form__block">
+    <label for="form__price" class="form__label">Price</label>
+    <input
+      class="form__input"
+      id="form__price"
+      name="price"
+      [(ngModel)]="product.price"
+      type="number"
+      #price="ngModel"
+      pattern="\d+(\.\d{1,2})?"
+      required
+      min="0"
+    />
+    <app-error
+      [hidden]="price.pristine || price.valid"
+      title="Price formatted incorrectly"
+    />
+  </div>
+  <div class="form__block">
+    <label for="form__description" class="form__label">Description</label>
+    <textarea
+      class="form__input"
+      id="form__description"
+      name="description"
+      [(ngModel)]="product.description"
+      #description="ngModel"
+      required
+    >
+    </textarea>
+    <app-error
+      [hidden]="description.pristine || description.valid"
+      title="Description is not specified"
+    />
+  </div>
+  <div class="form__block">
+    <label for="form__category" class="form__label">Category</label>
+    <select
+      class="form__select"
+      id="form__category"
+      name="category"
+      [(ngModel)]="product.category"
+      #category="ngModel"
+      required
+    >
+      @for(category of categories; track category){
+      <option class="form__option">
+        {{ category }}
+      </option>
+      }
+    </select>
+    <app-error
+      [hidden]="category.pristine || category.valid"
+      title="Category is not specified"
+    />
+  </div>
+  <div class="form__block">
+    <button
+      [disabled]="
+        title.invalid ||
+        price.invalid ||
+        description.invalid ||
+        category.invalid
+      "
+      class="button form__button"
+      (click)="addProduct(product)"
+      type="submit"
+    >
+      Add
+    </button>
+  </div>
+</form>
+} @else if(this.productAPIService.isLoading){
+<app-loading />
+}
+<app-global-error />

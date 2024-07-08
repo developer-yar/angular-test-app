@@ -1,0 +1,8 @@
+<div class="products">
+  @for (product of products | showMorePipe: showCount; track product.id) {
+  <app-product [product]="product" />
+  }
+</div>
+@if(products.length > showCount){
+<button class="button showMore" (click)="showMore()">Show more</button>
+}

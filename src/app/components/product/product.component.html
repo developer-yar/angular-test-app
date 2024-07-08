@@ -1,0 +1,12 @@
+<div class="product__attributes">
+  <img class="product__image" [src]="product.image" alt="Photo" />
+  <h2 class="product__title">{{ product.title }}</h2>
+  <p class="product__price">Price: {{ product.price | currency : "$" }}</p>
+  @if(isDetailed){
+  <p class="product__description">{{ product.description }}</p>
+  <p class="product__category">Category: {{ product.category }}</p>
+  }
+</div>
+<button class="button product__button" (click)="toggle()">
+  {{ isDetailed ? "Hide" : "Show" }} details
+</button>
